@@ -18,11 +18,13 @@ public class Secret {
         try {
             String a1 = null, a2 = null;
             int a3 = 0;
+            double a4 = 0;
             Map<String, String> params = new HashMap<>();
             params.put(Constants.PARAM_ID, id);
             String[] names = getNamesArrayFromServer (params);
             if (names != null) {
                 a1 = Main.mostCommonLastName(names);
+                a4 = Main.stringAverageSize(names);
             }
             String str =  getStringFromServer(params);
             if (str != null) {
@@ -32,7 +34,8 @@ public class Secret {
                 }
             }
             a3 = Main.sumArrayToDigit(Constants.ARRAY);
-            String[] tokens = getResults(params, a1, a2, a3);
+
+            String[] tokens = getResults(params, a1, a2, a3, a4);
             if (tokens != null && tokens.length == Constants.FUNCTIONS_MAP.size() + 1) {
                 results = new String[tokens.length];
                 int count = 0;
@@ -76,9 +79,9 @@ public class Secret {
         return sendGetRequest(Constants.DOMAIN, Paths.get_string.getPath(), params);
     }
 
-    private String[] getResults (Map<String, String> params, String a1, String a2, int a3)  throws Exception {
+    private String[] getResults (Map<String, String> params, String a1, String a2, int a3, double a4)  throws Exception {
         String[] tokens = null;
-        params.put(Constants.PARAM_RESULT, String.format("%s%s%s%s%d", a1, Constants.UNDERSCORE, a2, Constants.UNDERSCORE, a3));
+        params.put(Constants.PARAM_RESULT, String.format("%s%s%s%s%d%s%f", a1, Constants.UNDERSCORE, a2, Constants.UNDERSCORE, a3, Constants.UNDERSCORE, a4));
         String result = sendGetRequest(Constants.DOMAIN, Paths.check.getPath(), params);
         if (result != null) {
             tokens = result.split(Constants.UNDERSCORE);

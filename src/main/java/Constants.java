@@ -18,6 +18,7 @@ public class Constants {
         aMap.put(0, "mostCommonLastName");
         aMap.put(1, "reverse");
         aMap.put(2, "sumArrayToDigit");
+        aMap.put(3, "stringAverageSize");
         FUNCTIONS_MAP = Collections.unmodifiableMap(aMap);
     }
     public static final int[] ARRAY = {41,12,0, 6,1,876,1,4, 22};

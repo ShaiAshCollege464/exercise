@@ -3,11 +3,6 @@ import java.util.*;
 public class Main  {
 
     //implement this
-    public static String mostCommonLastName(String[] names) {
-        return null;
-    }
-
-    //implement this
     public static String reverse (String original) {
         return null;
     }
@@ -15,6 +10,16 @@ public class Main  {
     //implement this
     public static int sumArrayToDigit (int[] array) {
         return -1;
+    }
+
+    //implement this
+    public static double stringAverageSize (String[] names) {
+        return 0;
+    }
+
+    //implement this
+    public static String mostCommonLastName(String[] names) {
+        return null;
     }
 
 
